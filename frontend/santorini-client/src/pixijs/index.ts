@@ -8,7 +8,7 @@ import {
 import { addIsland, mapContainer } from "./islands/islands";
 
 /**
- * Initializes the PixiJS app and returns the view (canvas).
+ * Initializes the PixiJS app and returns the view (canvas)
  */
 export async function createPixiApp(
   container: HTMLElement,
