@@ -1,4 +1,12 @@
-import { loadMapAssets, mapData, getMapTexture } from "../misc/misc.ts";
+import {
+  loadMapAssets,
+  mapData,
+  getMapTexture,
+  bottomBlockTexture,
+  validTileTexture,
+  invalidTileTexture,
+  invalidBlockTexture,
+} from "../misc/misc.ts";
 import { Application, Texture, Sprite, Container } from "pixi.js";
 import { CompositeTilemap } from "@tilemap/CompositeTilemap";
 import { oakTreeAnimation } from "../animations/oak-tree.ts";
@@ -159,7 +167,6 @@ export const addIsland = async (app: Application) => {
           // add tile to container
           tileContainer.addChild(tileSprite);
           cellContainer[object.properties[0].value - 1] = tileContainer;
-
           renderQueue.push({ spriteContainer: tileContainer, drawY });
 
           return;
@@ -179,7 +186,6 @@ export const addIsland = async (app: Application) => {
     objectLayerContainer.addChild(spriteContainer),
   );
 
-  /**
   // Example: Add a block to cell 5
   const cell = cellContainer[5];
   const block = new Sprite(bottomBlockTexture);
@@ -190,14 +196,17 @@ export const addIsland = async (app: Application) => {
   cell.addChild(block);
   cell.sortChildren();
 
-  const block1 = new Sprite(middleBlockTexture);
+  const stackHeight = bottomBlockTexture.height - 50;
+
+  const block1 = new Sprite(invalidBlockTexture);
   block1.anchor.set(0.5, 1);
-  block1.position.set(0, -tileHeight * 3.2); // stack on top of base sprite
+  block1.position.set(0, -stackHeight); // stack on top of base sprite
 
   cell.sortableChildren = true;
   cell.addChild(block1);
   cell.sortChildren();
 
+  /**
   const stackHeight =
     bottomBlockTexture.height + middleBlockTexture.height - 130;
 

@@ -22,6 +22,10 @@ export let blueFemaleWorkerTexture: Texture;
 export let blueMaleWorkerTexture: Texture;
 export let brownFemaleWorkerTexture: Texture;
 export let brownMaleWorkerTexture: Texture;
+export let validBlockTexture: Texture;
+export let invalidBlockTexture: Texture;
+export let validTileTexture: Texture;
+export let invalidTileTexture: Texture;
 
 /**
  * Sets up the PixiJS application with initial configuration.
@@ -101,6 +105,22 @@ await Assets.load([
     alias: "brownMaleWorkerTexture",
     src: "/assets/brown-male.png",
   },
+  {
+    alias: "validBlockTexture",
+    src: "/assets/block-valid.png",
+  },
+  {
+    alias: "invalidBlockTexture",
+    src: "/assets/block-invalid.png",
+  },
+  {
+    alias: "validTileTexture",
+    src: "/assets/tile-valid.png",
+  },
+  {
+    alias: "invalidTileTexture",
+    src: "/assets/tile-invalid.png",
+  },
 ]);
 
 /**
@@ -126,6 +146,10 @@ export const loadMapAssets = async () => {
   blueMaleWorkerTexture = Assets.get("blueMaleWorkerTexture");
   brownFemaleWorkerTexture = Assets.get("brownFemaleWorkerTexture");
   brownMaleWorkerTexture = Assets.get("brownMaleWorkerTexture");
+  validBlockTexture = Assets.get("validBlockTexture");
+  invalidBlockTexture = Assets.get("invalidBlockTexture");
+  validTileTexture = Assets.get("validTileTexture");
+  invalidTileTexture = Assets.get("invalidTileTexture");
 };
 
 export const getMapTexture = (gid: number) => {
