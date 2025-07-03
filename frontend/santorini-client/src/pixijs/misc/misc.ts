@@ -26,6 +26,7 @@ export let validBlockTexture: Texture;
 export let invalidBlockTexture: Texture;
 export let validTileTexture: Texture;
 export let invalidTileTexture: Texture;
+export let introSceneTexture: Texture;
 
 /**
  * Sets up the PixiJS application with initial configuration.
@@ -121,6 +122,10 @@ await Assets.load([
     alias: "invalidTileTexture",
     src: "/assets/tile-invalid.png",
   },
+  {
+    alias: "introSceneTexture",
+    src: "/assets/intro.png",
+  }
 ]);
 
 /**
@@ -150,6 +155,7 @@ export const loadMapAssets = async () => {
   invalidBlockTexture = Assets.get("invalidBlockTexture");
   validTileTexture = Assets.get("validTileTexture");
   invalidTileTexture = Assets.get("invalidTileTexture");
+  introSceneTexture = Assets.get("introScene");
 };
 
 export const getMapTexture = (gid: number) => {
