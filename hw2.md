@@ -1,6 +1,11 @@
 # Homework 2: Santorini (Part 1)
 
-In this assignment, you will design and implement the core logic of a board game called Santorini (2 players, without god cards) in Java and you will review other designs for this game. The focus of this assignment is on considering design alternatives for code. This assignment is intended as a gentle introduction to modeling on a relatively simple problem. It is intended to be low stakes and you will have opportunities to receive feedback and learn from mistakes. In Homework 6, we will revisit the game and extend it with god cards and with a GUI.
+In this assignment, you will design and implement the core logic of a board game called 
+Santorini (2 players, without god cards) in Java and you will review other designs for this game. 
+The focus of this assignment is on considering design alternatives for code.
+This assignment is intended as a gentle introduction to modeling on a relatively simple problem. 
+It is intended to be low stakes and you will have opportunities to receive feedback and learn 
+from mistakes. In Homework 6, we will revisit the game and extend it with god cards and with a GUI.
 
 **This homework has 3 milestones:**
 
@@ -12,33 +17,74 @@ Milestone 2a and 2c are evaluated with the same criteria. Milestone 2a will be g
 
 This assignment has the following learning goals:
 
-* Demonstrate a comprehensive design and development process including object-oriented analysis, object-oriented design, and implementation.
+* Demonstrate a comprehensive design and development process including object-oriented analysis, 
+* object-oriented design, and implementation.
 
-* Demonstrate the use of design goals to influence your design choices, assigning responsibilities carefully, using design patterns where appropriate, discussing trade-offs among alternative designs, and choosing an appropriate solution. The core logic of your solution must be testable and completely independent from your solution’s eventual graphical user interface (GUI).
+* Demonstrate the use of design goals to influence your design choices, assigning responsibilities 
+* carefully, using design patterns where appropriate, discussing trade-offs among alternative designs, 
+* and choosing an appropriate solution. The core logic of your solution must be testable and completely
+* independent from your solution’s eventual graphical user interface (GUI).
 
-* Communicate design ideas clearly, including design documents that demonstrate fluency with the basic notation of UML class diagrams and interaction diagrams, the correct use of design vocabulary, and an appropriate level of formality in the specification of system behavior.
+* Communicate design ideas clearly, including design documents that demonstrate fluency with the basic 
+* notation of UML class diagrams and interaction diagrams, the correct use of design vocabulary, 
+* and an appropriate level of formality in the specification of system behavior.
 
-To start the assignment, use the GitHub classroom link from the Canvas assignment to create your personal repository.  It will only contain a template for one design document -- you will check in both your design documents and your code to this repository. Consult the appendix for guidance on how to make a new Maven project.
+To start the assignment, use the GitHub classroom link from the Canvas assignment to create your 
+personal repository.  It will only contain a template for one design document -- 
+you will check in both your design documents and your code to this repository. 
+Consult the appendix for guidance on how to make a new Maven project.
 
 ## Milestone 2a: Design and Implementation
 
-You will analyze, design, and implement the game Santorini without god cards (see appendix for rules). You should focus on the game-related functionality of the program, not its user interface. Think of playing the game by calling a sequence of methods, which you could execute in a test case; it is also helpful to think about and possibly sketch out the GUI and how it interacts with the game at this early stage. Note that the game (without god cards) is fairly simple, so you likely won't need more than a few classes/objects/methods.
+You will analyze, design, and implement the game Santorini without god cards (see appendix for rules). 
+You should focus on the game-related functionality of the program, not its user interface. 
+Think of playing the game by calling a sequence of methods, which you could execute in a test case; 
+it is also helpful to think about and possibly sketch out the GUI and how it interacts with the game 
+at this early stage. Note that the game (without god cards) is fairly simple, so you likely won't 
+need more than a few classes/objects/methods.
 
-Textbooks often describe a sequential process where the solution is designed before it is implemented. You might find it more convenient to start with coding and iteratively change and refactor the code until you are happy with the design, to create UML diagrams as documentation after the fact. In practice, developers may shift between different strategies and orders of formal design, exploratory coding, and sketching diagrams. We recommend to start at least with some domain analysis and rough modeling. If you adopt a coding-first approach, make sure that you think carefully about your design and are willing to substantially change your code if you discover problems.
+Textbooks often describe a sequential process where the solution is designed before it is implemented. 
+You might find it more convenient to start with coding and iteratively change and refactor the 
+code until you are happy with the design, to create UML diagrams as documentation after the fact. 
+In practice, developers may shift between different strategies and orders of formal design, 
+exploratory coding, and sketching diagrams. We recommend to start at least with some domain analysis 
+and rough modeling. If you adopt a coding-first approach, make sure that you think carefully about 
+your design and are willing to substantially change your code if you discover problems.
 
 ### Analysis & Design
 
 For analysis and design we expect you to create a number of design documents.
 
-We strongly recommend to not auto-generate models from code with tools, as those are often of low quality. Diagrams should be consistent with one another and other diagrams submitted with the homework.
+We strongly recommend to not auto-generate models from code with tools, 
+as those are often of low quality. Diagrams should be consistent with one another and other 
+diagrams submitted with the homework.
 
-**Deliverable 1: Domain model.** Create a domain model describing the important concepts of the game. Your domain model should be represented by a UML class diagram; you may optionally include a glossary. For more information on domain models, see Chapter 9 of Larman’s Applying UML and Patterns. Turn this in as <code>domain-model.pdf</code> in the root directory of your git repository.
+**Deliverable 1: Domain model.** Create a domain model describing the important concepts of the game. 
+Your domain model should be represented by a UML class diagram; you may optionally include a glossary. 
+For more information on domain models, see Chapter 9 of Larman’s Applying UML and Patterns. 
+Turn this in as <code>domain-model.pdf</code> in the root directory of your git repository.
 
-**Deliverable 2: System sequence diagram.** Create a system sequence diagram identifying all interactions between a user and the system when the user plays the game. The system sequence diagram should help you determine what interactions the high-level system makes available to its users. For more information on system sequence diagrams, see Chapter 10 of Larman’s Applying UML and Patterns. Turn this in as <code>system-sequence-diagram.pdf</code>.
+**Deliverable 2: System sequence diagram.** Create a system sequence diagram identifying all 
+interactions between a user and the system when the user plays the game. 
+The system sequence diagram should help you determine what interactions the high-level system
+makes available to its users. For more information on system sequence diagrams,
+see Chapter 10 of Larman’s Applying UML and Patterns. 
+Turn this in as <code>system-sequence-diagram.pdf</code>.
 
-**Deliverable 3: Behavioral contract.** Provide a behavioral contract for the following interaction initiated by the user: _The user attempts to move a worker_. The contract should explicitly describe the preconditions and postconditions for the interaction, and your behavioral contract should be consistent with your domain model and interaction diagrams. Constructing behavioral contract should help you envision important changes of internal state of the game when a player interacts with the game. You may provide explicit examples to clarify your contract. For more information on contracts, see Chapter 11 of Larman’s Applying UML and Patterns. Turn this in as <code>contract.pdf</code>.
+**Deliverable 3: Behavioral contract.** Provide a behavioral contract for the following 
+interaction initiated by the user: _The user attempts to move a worker_. 
+The contract should explicitly describe the preconditions and postconditions for the interaction, 
+and your behavioral contract should be consistent with your domain model and interaction diagrams.
+Constructing behavioral contract should help you envision important changes of internal state of 
+the game when a player interacts with the game. You may provide explicit examples to clarify 
+your contract. For more information on contracts, see Chapter 11 of Larman’s Applying UML and Patterns.
+Turn this in as <code>contract.pdf</code>.
 
-**Deliverable 4: Object model.** Create an object model of your game, documented as a UML class diagram. The object model should describe the classes and interfaces of your design, as well as their key associations (with cardinalities), attributes, and methods. For more information on class diagrams, see Chapter 16 of Larman’s Applying UML and Patterns. Model only the core of the game, not GUI elements or test code. Turn this in as `object-model.pdf`.
+**Deliverable 4: Object model.** Create an object model of your game, documented as a UML class diagram.
+The object model should describe the classes and interfaces of your design, 
+as well as their key associations (with cardinalities), attributes, and methods. 
+For more information on class diagrams, see Chapter 16 of Larman’s Applying UML and Patterns. 
+Model only the core of the game, not GUI elements or test code. Turn this in as `object-model.pdf`.
 
 **Deliverable 5: Justification for handling state.** The implementation needs to store state about the status of the game (at least players, current player, worker locations, towers, and winner). One key design question is usually what objects should store what state. For each kind of state the game needs to store explain where you store it. Using the template provided in the starter repository, provide a justification (with reference to design goals/principles/heuristics) for your responsibility assignment for state; discuss the alternatives you had considered and the trade-offs they entailed that led you to choose this particular design (essentially, your design process). Ensure that your answer is consistent with your object model. Turn this in as `state-justification.md`.
 

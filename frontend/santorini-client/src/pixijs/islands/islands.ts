@@ -241,21 +241,9 @@ export const addIsland = async (app: Application) => {
 
   mapContainer.scale.set(0.7);
 
-  console.log("windows full width is:" + app.screen.width);
-  console.log("windows full height is:" + app.screen.height);
+  mapContainer.interactiveChildren = false;
+  mapContainer.label = "mapContainer";
 
-  console.log("map container full width is:" + mapContainer.width);
-  console.log("map container full height is:" + mapContainer.height);
-
-  console.log(
-    "object layer container full width is:" + objectLayerContainer.width,
-  );
-  console.log(
-    "object layer container  full height is:" + objectLayerContainer.height,
-  );
-
-  console.log("tile layer container full width is:" + tileLayer.width);
-  console.log("tile layer container full height is:" + tileLayer.height);
   // Final: add everything to the stage
   app.stage.addChild(mapContainer);
 };

@@ -1,5 +1,3 @@
-import { gsap } from "gsap";
-import { GSDevTools } from "gsap/GSDevTools";
 import { Panel } from "./Panel.tsx";
 
 export const LeftPanel = () => {

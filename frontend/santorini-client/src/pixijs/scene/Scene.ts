@@ -1,22 +1,36 @@
 import { type Application, Container } from "pixi.js";
 
 /**
- * Base class for class related scenes
+ * Abstract base class for all scenes.
+ * Subclasses must implement `init` and `update`.
  */
 export abstract class Scene extends Container {
   protected app: Application;
 
-  constructor(app: Application) {
+  protected constructor(app: Application) {
     super();
     this.app = app;
-    console.log(this.app.resizeTo)
+    //console.log(this.app.resizeTo)
   }
 
+  /**
+   * Called once when scene is added to stage.
+   * Use this to build visuals and event listeners.
+   */
   abstract init(): void;
-  // abstract update(delta: number): void;
 
+  /**
+   * Called every frame. Use `delta` for animations.
+   * You can optionally override this.
+   */
+  update?(delta: number): void;
 
+  /**
+   * Called once before scene is removed from stage.
+   * Clean up timers, listeners, textures, etc.
+   */
   destroyScene(): void {
     this.removeChildren();
+    this.destroy({ children: true });
   }
 }

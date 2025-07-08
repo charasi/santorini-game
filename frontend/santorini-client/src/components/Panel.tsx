@@ -1,6 +1,3 @@
-import { gsap } from "gsap";
-import { GSDevTools } from "gsap/GSDevTools";
-
 export const Panel = () => {
   //gsap.registerPlugin(GSDevTools);
   //GSDevTools.create();

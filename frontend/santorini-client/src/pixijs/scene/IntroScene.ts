@@ -1,29 +1,93 @@
 import { Scene } from "./Scene.ts";
-import {type Application, Container, Sprite} from "pixi.js";
-import {introSceneTexture} from "../misc/misc.ts";
+import { type Application, Container, Sprite } from "pixi.js";
+import {
+  bgIntroTexture,
+  introSceneTexture,
+  startTexture,
+} from "../misc/misc.ts";
+import { Button } from "@pixi/ui";
+// gasp
+import { gsap } from "gsap";
+import { PixiPlugin } from "gsap/PixiPlugin";
+import * as PIXI from "pixi.js";
 
-class IntroScene extends Scene {
+gsap.registerPlugin(PixiPlugin);
+PixiPlugin.registerPIXI(PIXI);
+
+export class IntroScene extends Scene {
   constructor(app: Application) {
     super(app);
   }
 
-  // Set up intro visuals
   init() {
-    // create new container
-    const introScene = new Container();
-    introScene.height = this.app.stage.height / 2;
-    introScene.width = this.app.stage.width / 2;
-    // create sprite
+    this.width = this.app.screen.width / 2;
+    this.height = this.app.screen.height / 2;
+
+    // Container to hold intro UI elements
+    const introContainer = new Container();
+    introContainer.x = -100;
+    introContainer.y = -80;
+
+    // Background sprite
+    const bgIntroSprite = new Sprite(bgIntroTexture);
+    bgIntroSprite.label = "bgIntroSprite";
+    bgIntroSprite.width = 550;
+    bgIntroSprite.height = 350;
+    bgIntroSprite.position.set(-45, 0);
+
+    // Foreground "intro" sprite
     const introSprite = new Sprite(introSceneTexture);
-    introScene.addChild(introSprite);
+    introSprite.scale.set(0.6);
+    introSprite.position.set(-10, 10);
+
+    // Start button
+    const startSprite = new Sprite(startTexture);
+    startSprite.scale.set(0.45);
+    startSprite.position.set(115, 250);
+
+    const startButton = new Button(startSprite);
+
+    startButton.onPress.connect(() => {
+      this.emit("New Game");
+    });
+
+    // Add elements to intro container
+    introContainer.addChild(bgIntroSprite);
+    introContainer.addChild(introSprite);
+    introContainer.addChild(startButton.view);
+
+    const introAnim = gsap.timeline({
+      autoRemoveChildren: true,
+    });
+
+    introAnim
+      .fromTo(
+        bgIntroSprite,
+        { alpha: 0 },
+        { alpha: 1, duration: 2, ease: "power2.out" },
+      )
+      .fromTo(
+        introSprite,
+        { alpha: 0 },
+        { alpha: 1, duration: 1, ease: "power2.in" },
+      )
+      .fromTo(
+        startSprite,
+        { alpha: 0 },
+        { alpha: 1, duration: 1, ease: "power2.inOut" },
+      );
+
+    // Add container to scene
+    this.addChild(introContainer);
   }
 
   //update(delta) {
-    // Animation logic
+  // Animation logic
   //}
 
   destroyScene() {
     super.destroyScene();
     // additional cleanup if needed
+    this.destroy({ children: true });
   }
 }

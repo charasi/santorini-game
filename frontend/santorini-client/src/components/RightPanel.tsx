@@ -1,10 +1,6 @@
-import { gsap } from "gsap";
-import { GSDevTools } from "gsap/GSDevTools";
 import { Panel } from "./Panel.tsx";
 
 export const RightPanel = () => {
-  //gsap.registerPlugin(GSDevTools);
-  //GSDevTools.create();
   return (
     <aside
       className={
