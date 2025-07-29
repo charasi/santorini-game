@@ -3,7 +3,7 @@ import { Application } from "pixi.js";
 import { Scene } from "./Scene";
 
 /**
- * Manages scene overlays on top of the base game stage (e.g. Island).
+ * Manages scenes overlays on top of the base game stage (e.g. Island).
  */
 export class SceneManager {
   private app: Application;
@@ -14,7 +14,7 @@ export class SceneManager {
   }
 
   /**
-   * Adds a scene on top of the current overlays.
+   * Adds a scenes on top of the current overlays.
    * Calls `init` and registers `update` in ticker if available.
    */
   pushOverlay(scene: Scene): void {
@@ -23,7 +23,7 @@ export class SceneManager {
     this.app.stage.addChild(scene);
   }
   /**
-   * Removes the top-most scene.
+   * Removes the top-most scenes.
    * Calls `destroyScene` and deregisters `update` from ticker.
    */
   popOverlay(): void {
@@ -32,7 +32,7 @@ export class SceneManager {
 
     this.app.stage.removeChild(scene);
     if (scene.update) {
-      //this.app.ticker.remove(scene.update, scene);
+      //this.app.ticker.remove(scenes.update, scenes);
     }
     scene.destroyScene();
   }
@@ -54,7 +54,7 @@ export class SceneManager {
   }
 
   /**
-   * Gets the current active overlay scene, if needed.
+   * Gets the current active overlay scenes, if needed.
    */
   getCurrentScene(): Scene | null {
     return this.overlayStack.at(-1) || null;

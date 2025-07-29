@@ -186,6 +186,7 @@ export const addIsland = async (app: Application) => {
     objectLayerContainer.addChild(spriteContainer),
   );
 
+  /**
   // Example: Add a block to cell 5
   const cell = cellContainer[5];
   const block = new Sprite(bottomBlockTexture);
@@ -206,7 +207,7 @@ export const addIsland = async (app: Application) => {
   cell.addChild(block1);
   cell.sortChildren();
 
-  /**
+
   const stackHeight =
     bottomBlockTexture.height + middleBlockTexture.height - 130;
 

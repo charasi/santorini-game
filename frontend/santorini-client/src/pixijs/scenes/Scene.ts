@@ -14,7 +14,7 @@ export abstract class Scene extends Container {
   }
 
   /**
-   * Called once when scene is added to stage.
+   * Called once when scenes is added to stage.
    * Use this to build visuals and event listeners.
    */
   abstract init(): void;
@@ -26,7 +26,7 @@ export abstract class Scene extends Container {
   update?(delta: number): void;
 
   /**
-   * Called once before scene is removed from stage.
+   * Called once before scenes is removed from stage.
    * Clean up timers, listeners, textures, etc.
    */
   destroyScene(): void {

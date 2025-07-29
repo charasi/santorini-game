@@ -64,20 +64,20 @@ export class IntroScene extends Scene {
       .fromTo(
         bgIntroSprite,
         { alpha: 0 },
-        { alpha: 1, duration: 2, ease: "power2.out" },
+        { alpha: 1, duration: 2, ease: "power1.in" },
       )
       .fromTo(
         introSprite,
         { alpha: 0 },
-        { alpha: 1, duration: 1, ease: "power2.in" },
+        { alpha: 1, duration: 1, ease: "power1.in" },
       )
       .fromTo(
         startSprite,
         { alpha: 0 },
-        { alpha: 1, duration: 1, ease: "power2.inOut" },
+        { alpha: 1, duration: 1, ease: "power1.in" },
       );
 
-    // Add container to scene
+    // Add container to scenes
     this.addChild(introContainer);
   }
 
