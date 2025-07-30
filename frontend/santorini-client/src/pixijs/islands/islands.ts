@@ -2,12 +2,13 @@ import {
   loadMapAssets,
   mapData,
   getMapTexture,
-  bottomBlockTexture,
-  validTileTexture,
-  invalidTileTexture,
-  invalidBlockTexture,
+  // bottomBlockTexture,
+  // validTileTexture,
+  //invalidTileTexture,
+  //invalidBlockTexture,
 } from "../misc/misc.ts";
 import { Application, Texture, Sprite, Container } from "pixi.js";
+// @ts-ignore
 import { CompositeTilemap } from "@tilemap/CompositeTilemap";
 import { oakTreeAnimation } from "../animations/oak-tree.ts";
 import { GlowFilter } from "pixi-filters";

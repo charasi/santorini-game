@@ -1,3 +1,4 @@
+/**
 import type { GridContainer } from "../ifc/ifc.ts";
 
 export class Gameplay {
@@ -51,3 +52,4 @@ export class Gameplay {
     this._currentPlayer = value;
   }
 }
+*/

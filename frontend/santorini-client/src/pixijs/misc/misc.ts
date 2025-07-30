@@ -47,96 +47,35 @@ export const setup = async (
   container.appendChild(app.canvas);
 };
 
-// add bundle of asssets
-await Assets.load([
-  { alias: "background", src: "/assets/ocean.png" },
-  { alias: "displacement", src: "/assets/displacement_map.png" },
-  {
-    alias: "mapData",
-    src: "/json/santorini-map.json",
-  },
-  {
-    alias: "blockTileTexture",
-    src: "/assets/block-tile.png",
-  },
-  {
-    alias: "rockTileTexture",
-    src: "/assets/rock.png",
-  },
-  {
-    alias: "oakTreeSkeleton",
-    src: "/json/oak-tree.json",
-  },
-  {
-    alias: "oakTreeAtlas",
-    src: "/atlas/oak-tree.atlas",
-  },
-  {
-    alias: "tileTexture",
-    src: "/assets/tile.png",
-  },
-
-  {
-    alias: "bottomBlockTexture",
-    src: "/assets/level-1.png",
-  },
-  {
-    alias: "middleBlockTexture",
-    src: "/assets/level-2.png",
-  },
-  {
-    alias: "topBlockTexture",
-    src: "/assets/level-3.png",
-  },
-  {
-    alias: "domeBlockTexture",
-    src: "/assets/dome.png",
-  },
-  {
-    alias: "blueFemaleWorkerTexture",
-    src: "/assets/blue-female.png",
-  },
-  {
-    alias: "blueMaleWorkerTexture",
-    src: "/assets/blue-male.png",
-  },
-  {
-    alias: "brownFemaleWorkerTexture",
-    src: "/assets/brown-female.png",
-  },
-  {
-    alias: "brownMaleWorkerTexture",
-    src: "/assets/brown-male.png",
-  },
-  {
-    alias: "validBlockTexture",
-    src: "/assets/block-valid.png",
-  },
-  {
-    alias: "invalidBlockTexture",
-    src: "/assets/block-invalid.png",
-  },
-  {
-    alias: "validTileTexture",
-    src: "/assets/tile-valid.png",
-  },
-  {
-    alias: "invalidTileTexture",
-    src: "/assets/tile-invalid.png",
-  },
-  {
-    alias: "introSceneTexture",
-    src: "/assets/intro.png",
-  },
-  {
-    alias: "startTexture",
-    src: "/assets/start.png",
-  },
-  {
-    alias: "bgIntroTexture",
-    src: "/assets/bg-intro.png",
-  },
-]);
+// add bundle of assets
+// === preloadAssets.ts ===
+export const preloadAssets = async () => {
+  await Assets.load([
+    { alias: "background", src: "/assets/ocean.png" },
+    { alias: "displacement", src: "/assets/displacement_map.png" },
+    { alias: "mapData", src: "/json/santorini-map.json" },
+    { alias: "blockTileTexture", src: "/assets/block-tile.png" },
+    { alias: "rockTileTexture", src: "/assets/rock.png" },
+    { alias: "oakTreeSkeleton", src: "/json/oak-tree.json" },
+    { alias: "oakTreeAtlas", src: "/atlas/oak-tree.atlas" },
+    { alias: "tileTexture", src: "/assets/tile.png" },
+    { alias: "bottomBlockTexture", src: "/assets/level-1.png" },
+    { alias: "middleBlockTexture", src: "/assets/level-2.png" },
+    { alias: "topBlockTexture", src: "/assets/level-3.png" },
+    { alias: "domeBlockTexture", src: "/assets/dome.png" },
+    { alias: "blueFemaleWorkerTexture", src: "/assets/blue-female.png" },
+    { alias: "blueMaleWorkerTexture", src: "/assets/blue-male.png" },
+    { alias: "brownFemaleWorkerTexture", src: "/assets/brown-female.png" },
+    { alias: "brownMaleWorkerTexture", src: "/assets/brown-male.png" },
+    { alias: "validBlockTexture", src: "/assets/block-valid.png" },
+    { alias: "invalidBlockTexture", src: "/assets/block-invalid.png" },
+    { alias: "validTileTexture", src: "/assets/tile-valid.png" },
+    { alias: "invalidTileTexture", src: "/assets/tile-invalid.png" },
+    { alias: "introSceneTexture", src: "/assets/intro.png" },
+    { alias: "startTexture", src: "/assets/start.png" },
+    { alias: "bgIntroTexture", src: "/assets/bg-intro.png" },
+  ]);
+};
 
 /**
  * Loads map-related assets asynchronously using PixiJS Assets loader.

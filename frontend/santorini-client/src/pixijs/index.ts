@@ -2,10 +2,11 @@ import { Application } from "pixi.js";
 import {
   addBackground,
   addDisplacementEffect,
+  preloadAssets,
   setup,
   waterWaves,
 } from "./misc/misc";
-import { addIsland, cellContainer, mapContainer } from "./islands/islands";
+import { addIsland, mapContainer } from "./islands/islands";
 import { SceneManager } from "./scenes/SceneManager.ts";
 import { IntroScene } from "./scenes/IntroScene.ts";
 // gasp
@@ -13,13 +14,13 @@ import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import * as PIXI from "pixi.js";
 import { GameStarted } from "../states/GameStates.ts";
-import { Gameplay } from "./gameplay/Gameplay.ts";
+//import { Gameplay } from "./gameplay/Gameplay.ts";
 import { displayMessage } from "./gameplay/GameFlow.ts";
 
 gsap.registerPlugin(PixiPlugin);
 PixiPlugin.registerPIXI(PIXI);
 
-export let gameplay: Gameplay;
+//export let gameplay: Gameplay;
 
 /**
  * Initializes the PixiJS app and returns the view (canvas)
@@ -28,6 +29,7 @@ export async function createPixiApp(container: HTMLElement): Promise<void> {
   const app = new Application();
 
   await setup(app, container);
+  await preloadAssets();
   addBackground(app);
   addDisplacementEffect(app);
   await addIsland(app); // This adds `mapContainer`
@@ -43,7 +45,7 @@ export async function createPixiApp(container: HTMLElement): Promise<void> {
     c!.interactiveChildren = true;
     // Set Zustand store value to true
     GameStarted.getState().setNewGame(true);
-    gameplay = new Gameplay(cellContainer);
+    //gameplay = new Gameplay(cellContainer);
     sceneManager.popOverlay();
     introScene.destroyScene();
     displayMessage("Player 1: Please place your workers on the board!");

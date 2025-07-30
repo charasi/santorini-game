@@ -1,6 +1,6 @@
 import { createStore } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
-import { gameplay } from "../pixijs";
+//import { gameplay } from "../pixijs";
 import { displayMessage } from "../pixijs/gameplay/GameFlow.ts";
 
 type GameStartedStore = {
@@ -36,7 +36,8 @@ export const gameStates = createStore<GameStateStore>()(
     tileNo: 0,
 
     setTurnPhase: (phase: TurnPhase, player: number) => {
-      const currentPlayer = gameplay.currentPlayer;
+      //const currentPlayer = gameplay.currentPlayer;
+      const currentPlayer = 1;
       if (player !== currentPlayer) {
         displayMessage(
           "Wrong Player! Current Player is Player " + currentPlayer,
