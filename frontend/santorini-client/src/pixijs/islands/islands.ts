@@ -1,5 +1,14 @@
-import { loadMapAssets, mapData, getMapTexture } from "../misc/misc.ts";
+import {
+  loadMapAssets,
+  mapData,
+  getMapTexture,
+  // bottomBlockTexture,
+  // validTileTexture,
+  //invalidTileTexture,
+  //invalidBlockTexture,
+} from "../misc/misc.ts";
 import { Application, Texture, Sprite, Container } from "pixi.js";
+// @ts-ignore
 import { CompositeTilemap } from "@tilemap/CompositeTilemap";
 import { oakTreeAnimation } from "../animations/oak-tree.ts";
 import { GlowFilter } from "pixi-filters";
@@ -159,7 +168,6 @@ export const addIsland = async (app: Application) => {
           // add tile to container
           tileContainer.addChild(tileSprite);
           cellContainer[object.properties[0].value - 1] = tileContainer;
-
           renderQueue.push({ spriteContainer: tileContainer, drawY });
 
           return;
@@ -190,13 +198,16 @@ export const addIsland = async (app: Application) => {
   cell.addChild(block);
   cell.sortChildren();
 
-  const block1 = new Sprite(middleBlockTexture);
+  const stackHeight = bottomBlockTexture.height - 50;
+
+  const block1 = new Sprite(invalidBlockTexture);
   block1.anchor.set(0.5, 1);
-  block1.position.set(0, -tileHeight * 3.2); // stack on top of base sprite
+  block1.position.set(0, -stackHeight); // stack on top of base sprite
 
   cell.sortableChildren = true;
   cell.addChild(block1);
   cell.sortChildren();
+
 
   const stackHeight =
     bottomBlockTexture.height + middleBlockTexture.height - 130;
@@ -232,21 +243,9 @@ export const addIsland = async (app: Application) => {
 
   mapContainer.scale.set(0.7);
 
-  console.log("windows full width is:" + app.screen.width);
-  console.log("windows full height is:" + app.screen.height);
+  mapContainer.interactiveChildren = false;
+  mapContainer.label = "mapContainer";
 
-  console.log("map container full width is:" + mapContainer.width);
-  console.log("map container full height is:" + mapContainer.height);
-
-  console.log(
-    "object layer container full width is:" + objectLayerContainer.width,
-  );
-  console.log(
-    "object layer container  full height is:" + objectLayerContainer.height,
-  );
-
-  console.log("tile layer container full width is:" + tileLayer.width);
-  console.log("tile layer container full height is:" + tileLayer.height);
   // Final: add everything to the stage
   app.stage.addChild(mapContainer);
 };
