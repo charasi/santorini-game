@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# 🌊 Santorini (Browser-Based)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern reimagining of the **Santorini board game** built for the browser, combining the powers of **PixiJS**, **React**, **Zustand**, **GSAP**, and **Spine 2D**. This project explores interactive scene orchestration, isometric grid projection, fluid character animation, and state-driven UI through a cutting-edge frontend architecture.
 
-Currently, two official plugins are available:
+> ⚠️ **Note:** Development is still in progress. Contributions, suggestions, and feedback are welcome!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🎮 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🌀 Rendering & Animation
+- **PixiJS** for scene graph rendering, layered object depth sorting, and dynamic tile stacking
+- **Spine 2D Skeleton Animation** with custom animated tree using JSON + Atlas integration
+- **GSAP + PixiPlugin** for interactive overlay transitions and object animations
+- **Tiled JSON Maps** for isometric grid layout and z-index-aware object placement
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 🧠 Architecture & Scene Management
+- **Overlay Scene Stack** with push/pop design for `IntroScene`, `MenuScene`, etc.
+- **Zustand Global Store** to manage game phase (`Place`, `Move`, `Build`), selected tiles, and gameplay state
+- **SceneManager Class** to orchestrate canvas elements, event handling, and responsive resizing
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🧩 UI & Layout
+- **React + Tailwind CSS** panels for gameplay actions across top, bottom, and sides
+- **Responsive Design** with dynamic resizing of isometric map inside fixed layout constraints
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🚀 Tech Stack
+
+| Layer         | Technology                                      |
+|---------------|--------------------------------------------------|
+| Rendering     | PixiJS, GSAP, PixiPlugin                        |
+| Animation     | Spine 2D (JSON + Atlas)                        |
+| Frontend UI   | React, Tailwind CSS                            |
+| State Management | Zustand                                      |
+| Map Design    | Tiled Editor, JSON Grid                        |
+
+---
+
+## 📦 Project Setup (Coming Soon)
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/santorini-browser.git
+cd santorini-browser
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
